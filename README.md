@@ -1,4 +1,4 @@
-# OpenStack Exporter for Prometheus [![Build Status][buildstatus]][circleci] 
+# OpenStack Exporter for Prometheus [![Build Status][buildstatus]][circleci]
 
 A [OpenStack](https://openstack.org/) exporter for prometheus written in Golang using the
 [gophercloud](https://github.com/gophercloud/gophercloud) library.
@@ -76,11 +76,11 @@ usage: openstack-exporter [<flags>] <cloud>
 
 Flags:
   -h, --help                     Show context-sensitive help (also try --help-long and --help-man).
-      --web.listen-address=":9180"  
+      --web.listen-address=":9180"
                                  address:port to listen on
-      --web.telemetry-path="/metrics"  
+      --web.telemetry-path="/metrics"
                                  uri path to expose metrics
-      --os-client-config="/etc/openstack/clouds.yaml"  
+      --os-client-config="/etc/openstack/clouds.yaml"
                                  Path to the cloud configuration file
       --prefix="openstack"       Prefix for metrics
       --endpoint-type="public"   openstack endpoint type to use (i.e: public, internal, admin)
@@ -89,7 +89,7 @@ Flags:
       --disable-service.compute  Disable the compute service exporter
       --disable-service.image    Disable the image service exporter
       --disable-service.volume   Disable the volume service exporter
-      --disable-service.identity  
+      --disable-service.identity
                                  Disable the identity service exporter
 
 Args:
@@ -155,7 +155,7 @@ openstack_neutron_routers|region="RegionOne"|134.0 (float)
 openstack_nova_availability_zones|region="RegionOne"|4.0 (float)
 openstack_nova_flavors|region="RegionOne"|4.0 (float)
 openstack_nova_total_vms|region="RegionOne"|12.0 (float)
-openstack_nova_server_status|region="RegionOne",hostname="compute-01""id", "name", "tenant_id", "user_id", "address_ipv4",                                                                     	"address_ipv6", "host_id", "uuid", "availability_zone"|0.0 (float)
+openstack_nova_server_status|region="RegionOne",hostname="compute-01""id", "name", "project_id", "user_id", "address_ipv4",                                                                     	"address_ipv6", "host_id", "uuid", "availability_zone"|0.0 (float)
 openstack_nova_running_vms|region="RegionOne",hostname="compute-01",availability_zone="az1",aggregates="shared,ssd"|12.0 (float)
 openstack_nova_local_storage_used_bytes|region="RegionOne",hostname="compute-01",aggregates="shared,ssd"|100.0 (float)
 openstack_nova_local_storage_available_bytes|region="RegionOne",hostname="compute-01",aggregates="shared,ssd"|30.0 (float)
@@ -171,19 +171,19 @@ openstack_nova_limits_memory_used|tenant="demo-project"|40000.0 (float)
 openstack_cinder_service_state|hostname="compute-01",region="RegionOne",service="cinder-backup",adminState="enabled",zone="nova"|1.0 or 0 (bool)
 openstack_cinder_volumes|region="RegionOne"|4.0 (float)
 openstack_cinder_snapshots|region="RegionOne"|4.0 (float)
-openstack_cinder_volume_status|region="RegionOne""id", "name", "status", "bootable", "tenant_id", "size", "volume_type"|4.0 (float) 
+openstack_cinder_volume_status|region="RegionOne""id", "name", "status", "bootable", "project_id", "size", "volume_type"|4.0 (float)
 openstack_identity_domains|region="RegionOne"|1.0 (float)
 openstack_identity_users|region="RegionOne"|30.0 (float)
 openstack_identity_projects|region="RegionOne"|33.0 (float)
 openstack_identity_groups|region="RegionOne"|1.0 (float)
 openstack_identity_regions|region="RegionOne"|1.0 (float)
-openstack_object_store_objects|region="RegionOne",container_name="test2"|1.0 (float) 
+openstack_object_store_objects|region="RegionOne",container_name="test2"|1.0 (float)
 
 ## Example metrics
 ```
 # HELP openstack_cinder_agent_state agent_state
 # TYPE openstack_cinder_agent_state counter
-openstack_cinder_volume_status{bootable="",id="11017190-61ab-426f-9366-2299292sadssad",name="",region="Region",size="0",status="",tenant_id="",volume_type=""} 1.0
+openstack_cinder_volume_status{bootable="",id="11017190-61ab-426f-9366-2299292sadssad",name="",region="Region",size="0",status="",project_id="",volume_type=""} 1.0
 openstack_cinder_agent_state{adminState="enabled",hostname="compute-node-01",region="Region",service="cinder-backup",zone="nova"} 1.0
 openstack_cinder_agent_state{adminState="enabled",hostname="compute-node-01",region="Region",service="cinder-scheduler",zone="nova"} 1.0
 openstack_cinder_agent_state{adminState="enabled",hostname="compute-node-01@rbd-1",region="Region",service="cinder-volume",zone="nova"} 1.0

@@ -12,7 +12,7 @@ type GlanceExporter struct {
 
 var defaultGlanceMetrics = []Metric{
 	{Name: "images", Fn: ListImages},
-	{Name: "image_size", Labels: []string{"resource_id", "name", "tenant_id"}, Fn: nil},
+	{Name: "image_size", Labels: []string{"resource_id", "name", "project_id"}, Fn: nil},
 }
 
 func NewGlanceExporter(client *gophercloud.ServiceClient, prefix string, disabledMetrics []string) (*GlanceExporter, error) {

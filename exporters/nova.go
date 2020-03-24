@@ -70,7 +70,7 @@ var defaultNovaMetrics = []Metric{
 	{Name: "memory_used_bytes", Labels: []string{"hostname", "availability_zone", "aggregates"}},
 	{Name: "local_storage_available_bytes", Labels: []string{"hostname", "availability_zone", "aggregates"}},
 	{Name: "local_storage_used_bytes", Labels: []string{"hostname", "availability_zone", "aggregates"}},
-	{Name: "server_status", Labels: []string{"id", "status", "name", "tenant_id", "user_id", "address_ipv4",
+	{Name: "server_status", Labels: []string{"id", "status", "name", "project_id", "user_id", "address_ipv4",
 		"address_ipv6", "host_id", "uuid", "availability_zone", "flavor_id"}},
 	{Name: "limits_vcpus_max", Labels: []string{"tenant"}, Fn: ListComputeLimits},
 	{Name: "limits_vcpus_used", Labels: []string{"tenant"}},
