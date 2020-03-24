@@ -53,6 +53,7 @@ var defaultCinderMetrics = []Metric{
 	{Name: "snapshots", Fn: ListSnapshots},
 	{Name: "agent_state", Labels: []string{"hostname", "service", "adminState", "zone"}, Fn: ListCinderAgentState},
 	{Name: "volume_status", Labels: []string{"id", "name", "status", "bootable", "tenant_id", "size", "volume_type"}, Fn: nil},
+	{Name: "volume_size", Labels: []string{"resource_id", "name", "status", "bootable", "tenant_id", "volume_type"}, Fn: nil},
 }
 
 func NewCinderExporter(client *gophercloud.ServiceClient, prefix string, disabledMetrics []string) (*CinderExporter, error) {
@@ -99,6 +100,13 @@ func ListVolumes(exporter *BaseOpenStackExporter, ch chan<- prometheus.Metric) e
 		ch <- prometheus.MustNewConstMetric(exporter.Metrics["volume_status"].Metric,
 			prometheus.GaugeValue, float64(mapVolumeStatus(volume.Status)), volume.ID, volume.Name,
 			volume.Status, volume.Bootable, volume.TenantID, strconv.Itoa(volume.Size), volume.VolumeType)
+	}
+
+	// Volume size metrics
+	for _, volume := range allVolumes {
+		ch <- prometheus.MustNewConstMetric(exporter.Metrics["volume_size"].Metric,
+			prometheus.GaugeValue, float64(volume.Size), volume.ID, volume.Name,
+			volume.Status, volume.Bootable, volume.TenantID, volume.VolumeType)
 	}
 
 	return nil

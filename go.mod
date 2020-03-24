@@ -1,4 +1,4 @@
-module github.com/openstack-exporter/openstack-exporter
+module github.com/priteau/openstack-exporter
 
 go 1.13
 

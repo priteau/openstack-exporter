@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/openstack-exporter/openstack-exporter/exporters"
+	"github.com/priteau/openstack-exporter/exporters"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/prometheus/common/log"
 	"github.com/prometheus/common/version"

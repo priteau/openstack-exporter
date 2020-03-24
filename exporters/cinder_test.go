@@ -23,6 +23,10 @@ openstack_cinder_snapshots 1
 # HELP openstack_cinder_up up
 # TYPE openstack_cinder_up gauge
 openstack_cinder_up 1
+# HELP openstack_cinder_volume_size volume_size
+# TYPE openstack_cinder_volume_size gauge
+openstack_cinder_volume_size{bootable="false",name="test-volume-attachments",resource_id="6edbc2f4-1507-44f8-ac0d-eed1d2608d38",status="in-use",tenant_id="bab7d5c60cd041a0a36f7c4b6e1dd978",volume_type="lvmdriver-1"} 2
+openstack_cinder_volume_size{bootable="true",name="test-volume",resource_id="173f7b48-c4c1-4e70-9acc-086b39073506",status="available",tenant_id="bab7d5c60cd041a0a36f7c4b6e1dd978",volume_type="lvmdriver-1"} 1
 # HELP openstack_cinder_volume_status volume_status
 # TYPE openstack_cinder_volume_status gauge
 openstack_cinder_volume_status{bootable="false",id="6edbc2f4-1507-44f8-ac0d-eed1d2608d38",name="test-volume-attachments",size="2",status="in-use",tenant_id="bab7d5c60cd041a0a36f7c4b6e1dd978",volume_type="lvmdriver-1"} 5
